@@ -1,4 +1,4 @@
-package entities;
+package com.softpower.entities;
 
 
 import com.sun.istack.NotNull;
@@ -43,5 +43,13 @@ public class Producto implements Serializable {
     @NotNull
     @Column(name = "marca_id")
     private String marca_id;
+
+    public String getMarca_id() {
+        return marca_id;
+    }
+
+    public void setMarca_id(String marca_id) {
+        this.marca_id = marca_id;
+    }
 
 }

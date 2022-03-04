@@ -1,4 +1,4 @@
-package entities;
+package com.softpower.entities;
 
 
 import com.sun.istack.NotNull;

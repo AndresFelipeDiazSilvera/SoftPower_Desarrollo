@@ -1,4 +1,4 @@
-package entities;
+package com.softpower.entities;
 
 
 import com.sun.istack.NotNull;
@@ -51,4 +51,12 @@ public class Terceros implements Serializable {
     @NotNull
     @Column(name = "movimiento_id")
     private String movimiento_id;
+
+    public String getMovimiento_id() {
+        return movimiento_id;
+    }
+
+    public void setMovimiento_id(String movimiento_id) {
+        this.movimiento_id = movimiento_id;
+    }
 }

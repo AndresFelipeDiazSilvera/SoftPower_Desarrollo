@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{css/jquery-ui.min.css}"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+</head>
+<body>
+
+<h1 th:text="${titulo}"></h1>
+  <br>
+  <form th:object="${marca}" th:action="@{/createMarca}" method="post">
+      <div class="form-group">
+          <br/>
+              <label for="nombre">Nombre de la marca</label>
+              <input id="nombre" type="text" class="form-control" field="*{nombre}" name="nombre" placeholder="Ingresa el nombre de la marca">
+              <small id="nombrehelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+          <br/>
+              <label for="pais_origen">Pais de Origen</label>
+              <input id="pais_origen" type="text" class="form-control" field="*{pais_origen}" name="pais_origen" placeholder="Ingrese el pais de origen">
+              <small id="pais_origenhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+          <br/>
+              <label for="web">Web</label>
+              <input id="web" type="text" class="form-control" field="*{web}" name="web" placeholder="Ingrese la web">
+              <small id="webhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+
+
+          <div class="form-label">
+              <input type="submit" value="GUARDAR"
+                     class="btn btn-success" />
+          </div>
+      </div>
+
+      <br>
+
+  </form>
+
+</body>
+</html>

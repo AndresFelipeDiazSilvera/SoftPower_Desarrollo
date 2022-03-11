@@ -16,4 +16,14 @@ public class MarcaServiceImp implements ImarcaService {
     @Override
     @Transactional(readOnly = true)
     public List<Marca> findAll() { return (List<Marca>) imarcaDao.findAll();}
+
+    @Override
+    public void save(Marca marca) {
+    imarcaDao.save(marca);
+    }
+
+    @Override
+    public Marca findOne(Long id) {
+        return null;
+    }
 }

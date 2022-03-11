@@ -13,7 +13,7 @@ public class Marca implements Serializable {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -27,4 +27,35 @@ public class Marca implements Serializable {
     @Column(name = "web")
     private String web;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPais_origen() {
+        return pais_origen;
+    }
+
+    public void setPais_origen(String pais_origen) {
+        this.pais_origen = pais_origen;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
 }

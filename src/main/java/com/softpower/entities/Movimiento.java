@@ -40,6 +40,46 @@ public class Movimiento implements Serializable {
     @Column(name = "producto_id")
     private String producto_id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTipo_movimiento() {
+        return tipo_movimiento;
+    }
+
+    public void setTipo_movimiento(String tipo_movimiento) {
+        this.tipo_movimiento = tipo_movimiento;
+    }
+
+    public String getNumero_factura() {
+        return numero_factura;
+    }
+
+    public void setNumero_factura(String numero_factura) {
+        this.numero_factura = numero_factura;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
     public String getProducto_id() {
         return producto_id;
     }

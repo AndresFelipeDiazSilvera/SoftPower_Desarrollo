@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ImarcaService {
     public List<Marca> findAll();
+
+    public void save(Marca marca);
+
+    public Marca findOne(Long id);
  }

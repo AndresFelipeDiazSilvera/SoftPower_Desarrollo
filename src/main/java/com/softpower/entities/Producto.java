@@ -5,6 +5,8 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -14,7 +16,7 @@ public class Producto implements Serializable {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -28,21 +30,25 @@ public class Producto implements Serializable {
 
     @NotNull
     @Column(name = "precio")
-    private String precio;
+    private float precio;
 
     @NotNull
     @Column(name = "iva")
-    private String iva;
+    private float iva;
 
     @Column(name = "cantidad_maxima")
-    private String cantidad_maxima;
+    private int cantidad_maxima;
 
     @Column(name = "cantidad_minima")
-    private String cantidad_minima;
+    private int cantidad_minima;
 
-    @NotNull
-    @Column(name = "marca_id")
-    private String marca_id;
+    @ManyToOne
+    @JoinColumn(name= "marca_id")
+    private Marca marca;
+
+    @OneToMany(mappedBy = "id")
+    private List<Producto> productoList;
+
 
     public Long getId() {
         return id;
@@ -50,14 +56,6 @@ public class Producto implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getMarca_id() {
-        return marca_id;
-    }
-
-    public void setMarca_id(String marca_id) {
-        this.marca_id = marca_id;
     }
 
     public String getNombre() {
@@ -76,35 +74,52 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
-    public String getIva() {
+    public float getIva() {
         return iva;
     }
 
-    public void setIva(String iva) {
+    public void setIva(float iva) {
         this.iva = iva;
     }
 
-    public String getCantidad_maxima() {
+    public int getCantidad_maxima() {
         return cantidad_maxima;
     }
 
-    public void setCantidad_maxima(String cantidad_maxima) {
+    public void setCantidad_maxima(int cantidad_maxima) {
         this.cantidad_maxima = cantidad_maxima;
     }
 
-    public String getCantidad_minima() {
+    public int getCantidad_minima() {
         return cantidad_minima;
     }
 
-    public void setCantidad_minima(String cantidad_minima) {
+    public void setCantidad_minima(int cantidad_minima) {
         this.cantidad_minima = cantidad_minima;
     }
+
+    public List<Producto> getProductoList() {
+        return productoList;
+    }
+
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
 }
+

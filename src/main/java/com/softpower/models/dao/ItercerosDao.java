@@ -1,8 +1,7 @@
 package com.softpower.models.dao;
 
-import org.springframework.data.jpa.repository.Query;
-import com.softpower.entities.Terceros;
+import com.softpower.entities.Tercero;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ItercerosDao extends CrudRepository<Terceros, Long> {
+public interface ItercerosDao extends CrudRepository<Tercero, Long> {
 }

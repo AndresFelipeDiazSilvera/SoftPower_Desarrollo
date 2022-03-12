@@ -17,4 +17,14 @@ public class ProductoServiceImp implements IproductoService{
     @Transactional(readOnly = true)
     public List<Producto> findAll() { return (List<Producto>) iproductoDao.findAll();}
 
+    @Override
+    public void save(Producto producto) {
+        iproductoDao.save(producto);
+    }
+
+    @Override
+    public Producto findOne(Long id) {
+        return null;
+    }
+
 }

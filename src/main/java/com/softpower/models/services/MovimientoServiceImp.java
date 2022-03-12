@@ -16,4 +16,14 @@ public class MovimientoServiceImp implements ImovimientoService{
     @Override
     @Transactional(readOnly = true)
     public List<Movimiento> findAll() { return (List<Movimiento>) imovimientoDao.findAll(); }
+
+    @Override
+    public void save(Movimiento movimiento) {
+        imovimientoDao.save(movimiento);
+    }
+
+    @Override
+    public Movimiento findOne(Long id) {
+        return null;
+    }
 }

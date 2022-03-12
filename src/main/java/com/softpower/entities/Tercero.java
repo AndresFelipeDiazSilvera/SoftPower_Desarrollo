@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "terceros")
-public class Terceros implements Serializable {
+public class Tercero implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -23,7 +23,7 @@ public class Terceros implements Serializable {
 
     @NotNull
     @Column(name = "documento")
-    private String documento;
+    private float documento;
 
     @NotNull
     @Column(name = "nombre")
@@ -76,11 +76,11 @@ public class Terceros implements Serializable {
         this.tipo_documento = tipo_documento;
     }
 
-    public String getDocumento() {
+    public float getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(float documento) {
         this.documento = documento;
     }
 

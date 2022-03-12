@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mi primer CRUD con JPA,SPRING,MVC</title>
+    <title>Movimientos</title>
     <meta charset="UTF-8">
     <meta name="description" content="Esta es mi primera pagina web" />
     <meta name="author" content="Andres y Alexis" />
@@ -27,22 +27,26 @@
     <thead class="thead-dark">
     <tr>
         <th>Id</th>
-        <th>Nombre</th>
-        <th>Pais Origen</th>
-        <th>Web</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="marcas: ${marcas}">
-        <td th:text="${marcas.id}"></td>
-        <td th:text="${marcas.nombre}"></td>
-        <td th:text="${marcas.pais_origen}"></td>
-        <td th:text="${marcas.web}"></td>
+        <th>Tipo de Movimiento</th>
+        <th>Número de Factura</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <!-- <th>Id Producto</th>-->
+     </tr>
+     </thead>
+     <tbody>
+     <tr th:each="movimiento: ${movimiento}">
+         <td th:text="${movimiento.id}"></td>
+         <td th:text="${movimiento.tipo_movimiento}"></td>
+         <td th:text="${movimiento.numero_factura}"></td>
+         <td th:text="${movimiento.fecha}"></td>
+         <td th:text="${movimiento.total}"></td>
+         <!-- <td th:text="${movimiento.producto_id}"></td> -->
     </tr>
     </tbody>
 </table>
-<a th:href="@{/createMarca}"
-    class="btn btn-primary" style="margin-top: 10px;margin-left: 25px;">Crear Marca</a>
+<a th:href="@{/movimiento/crearMovimiento}"
+   class="btn btn-primary" style="margin-top: 10px;margin-left: 25px;">Crear Movimiento</a>
 
 </body>
 </html>

@@ -1,10 +1,14 @@
 package com.softpower.controllers;
 
+import com.softpower.entities.Movimiento;
 import com.softpower.models.services.ImovimientoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -14,10 +18,27 @@ public class MovimientoController {
     @Autowired
     private ImovimientoService imovimientoService;
 
-    @GetMapping("/listaMoviento")
+    @GetMapping("/movimiento/listarMovimiento")
     public String listar(Model model){
-        model.addAttribute("titulo","Listar Movimiento");
-        model.addAttribute("movimientos", imovimientoService.findAll());
-        return "ListarMovimiento";
+        model.addAttribute("titulo","Listar Movimientos");
+        model.addAttribute("movimiento", imovimientoService.findAll());
+        return "movimiento/listarMovimiento";
     }
+
+    @GetMapping(value = "/movimiento/crearMovimiento")
+    public String create(Model model){
+        model.addAttribute("movimiento",new Movimiento());
+        model.addAttribute("titulo","Crear Movimiento");
+        return "movimiento/crearMovimiento";
+    }
+
+    @PostMapping(value = "/movimiento/crearMovimiento")
+    public String guardarmovimiento(@Validated Movimiento movimiento, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "movimiento/crearMovimiento";
+        }
+        imovimientoService.save(movimiento);
+        return "redirect:/movimiento/listarMovimiento";
+    }
+
 }

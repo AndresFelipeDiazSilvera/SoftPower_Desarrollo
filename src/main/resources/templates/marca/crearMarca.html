@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crear Marcas</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{css/jquery-ui.min.css}"/>
@@ -21,7 +21,7 @@
 
 <h1 th:text="${titulo}"></h1>
   <br>
-  <form th:object="${marca}" th:action="@{/createMarca}" method="post">
+  <form th:object="${marca}" th:action="@{/marca/crearMarca}" method="post">
       <div class="form-group">
           <br/>
               <label for="nombre">Nombre de la marca</label>
@@ -35,16 +35,12 @@
               <label for="web">Web</label>
               <input id="web" type="text" class="form-control" field="*{web}" name="web" placeholder="Ingrese la web">
               <small id="webhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
-
-
+          <br>
           <div class="form-label">
               <input type="submit" value="GUARDAR"
                      class="btn btn-success" />
           </div>
       </div>
-
-      <br>
-
   </form>
 
 </body>

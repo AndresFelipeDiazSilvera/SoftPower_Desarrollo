@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "marca")
@@ -26,6 +27,9 @@ public class Marca implements Serializable {
 
     @Column(name = "web")
     private String web;
+
+    @OneToMany(mappedBy = "id")
+    private List<Producto> productoList;
 
     public Long getId() {
         return id;
@@ -57,5 +61,13 @@ public class Marca implements Serializable {
 
     public void setWeb(String web) {
         this.web = web;
+    }
+
+    public List<Producto> getProductoList() {
+        return productoList;
+    }
+
+    public void setProductoList(List<Producto> productoList) {
+        this.productoList = productoList;
     }
 }

@@ -6,6 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "movimiento")
@@ -14,7 +16,7 @@ public class Movimiento implements Serializable {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -34,11 +36,11 @@ public class Movimiento implements Serializable {
 
     @NotNull
     @Column(name = "total")
-    private String total;
+    private Double total;
 
-    @NotNull
-    @Column(name = "producto_id")
-    private String producto_id;
+    @ManyToOne
+    @JoinColumn(name= "producto_id")
+    private Producto producto;
 
     public Long getId() {
         return id;
@@ -72,19 +74,20 @@ public class Movimiento implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
-    public String getProducto_id() {
-        return producto_id;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setProducto_id(String producto_id) {
-        this.producto_id = producto_id;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }
+

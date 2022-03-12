@@ -16,7 +16,7 @@ public class TercerosController {
 
     @GetMapping("/listaTerceros")
     public String listar(Model model){
-        model.addAttribute("titulo","Listar Terceros");
+        model.addAttribute("titulo","Listar Tercero");
         model.addAttribute("terceros", itercerosService.findAll());
         return "ListarTerceros";
     }

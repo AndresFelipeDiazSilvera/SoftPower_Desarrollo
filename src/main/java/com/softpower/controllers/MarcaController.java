@@ -18,27 +18,26 @@ public class MarcaController {
     @Autowired
     private ImarcaService imarcaService;
 
-    @GetMapping("/listarMarca")
+    @GetMapping("/marca/listarMarca")
     public String listar(Model model){
         model.addAttribute("titulo","Listar Marcas");
-        model.addAttribute("marcas", imarcaService.findAll());
-        return "ListarMarca";
+        model.addAttribute("marca", imarcaService.findAll());
+        return "marca/listarMarca";
     }
-    @GetMapping(value = "/createMarca")
+    @GetMapping(value = "/marca/crearMarca")
     public String create(Model model){
         model.addAttribute("marca",new Marca());
-        model.addAttribute("titulo","Create Marca");
-        return "createMarca";
+        model.addAttribute("titulo","Crear Marca");
+        return "marca/crearMarca";
     }
 
-    @PostMapping(value = "/createMarca")
+    @PostMapping(value = "/marca/crearMarca")
     public String guardarmarca(@Validated Marca marca, BindingResult result, Model model){
         if (result.hasErrors()){
-            return "createMarca";
+            return "marca/crearMarca";
         }
-        //marca.setWeb(toString());
         imarcaService.save(marca);
-        return "redirect:/listarMarca";
+        return "redirect:/marca/listarMarca";
     }
 
 

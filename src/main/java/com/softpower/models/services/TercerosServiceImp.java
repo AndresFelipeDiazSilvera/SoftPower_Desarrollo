@@ -1,6 +1,6 @@
 package com.softpower.models.services;
 
-import com.softpower.entities.Terceros;
+import com.softpower.entities.Tercero;
 import com.softpower.models.dao.ItercerosDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,5 +15,15 @@ public class TercerosServiceImp implements ItercerosService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Terceros> findAll() { return (List<Terceros>) itercerosDao.findAll();}
+    public List<Tercero> findAll() { return (List<Tercero>) itercerosDao.findAll();}
+
+    @Override
+    public void save(Tercero tercero) {
+        itercerosDao.save(tercero);
+    }
+
+    @Override
+    public Tercero findOne(Long id) {
+        return null;
+    }
 }

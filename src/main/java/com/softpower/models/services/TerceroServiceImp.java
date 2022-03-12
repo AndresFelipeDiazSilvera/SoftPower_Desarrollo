@@ -1,7 +1,7 @@
 package com.softpower.models.services;
 
 import com.softpower.entities.Tercero;
-import com.softpower.models.dao.ItercerosDao;
+import com.softpower.models.dao.IterceroDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,17 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class TercerosServiceImp implements ItercerosService{
+public class TerceroServiceImp implements IterceroService {
     @Autowired
-    private ItercerosDao itercerosDao;
+    private IterceroDao iterceroDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Tercero> findAll() { return (List<Tercero>) itercerosDao.findAll();}
+    public List<Tercero> findAll() { return (List<Tercero>) iterceroDao.findAll();}
 
     @Override
     public void save(Tercero tercero) {
-        itercerosDao.save(tercero);
+        iterceroDao.save(tercero);
     }
 
     @Override

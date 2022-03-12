@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Tercero</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{css/jquery-ui.min.css}"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+</head>
+<body>
+
+<h1 th:text="${titulo}"></h1>
+<br>
+<form th:object="${tercero}" th:action="@{/tercero/crearTercero}" method="post">
+    <div class="form-group">
+        <br/>
+        <label for="tipo_documento">Tipo de Documento</label>
+        <input id="tipo_documento" type="text" class="form-control" field="*{tipo_documento}" name="tipo_documento" placeholder="Ingresa el tipo de documento">
+        <small id="tipo_documentohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br/>
+        <label for="documento">Documento</label>
+        <input id="documento" type="text" class="form-control" field="*{documento}" name="documento" placeholder="Ingrese su documento">
+        <small id="documentohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br/>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" class="form-control" field="*{nombre}" name="nombre" placeholder="Ingrese su nombre">
+        <small id="nombrehelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="apellido">Apellido</label>
+        <input id="apellido" type="text" class="form-control" field="*{apellido}" name="apellido" placeholder="Ingrese su apellido">
+        <small id="apellidohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="direccion">Direccion</label>
+        <input id="direccion" type="text" class="form-control" field="*{direccion}" name="direccion" placeholder="Ingrese su direccion">
+        <small id="direccionhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="telefono">Telefono</label>
+        <input id="telefono" type="text" class="form-control" field="*{telefono}" name="telefono" placeholder="Ingrese su telefono">
+        <small id="telefonohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="email">Email</label>
+        <input id="email" type="text" class="form-control" field="*{email}" name="email" placeholder="Ingrese su email">
+        <small id="emailhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="genero">Genero</label>
+        <input id="genero" type="text" class="form-control" field="*{genero}" name="genero" placeholder="Ingrese su genero">
+        <small id="generohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <label for="tipo_tercero">Tipo tercero</label>
+        <input id="tipo_tercero" type="text" class="form-control" field="*{tipo_tercero}" name="tipo_tercero" placeholder="Ingrese el tipo de tercero">
+        <small id="tipo_tercerohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <br>
+        <div class="form-label">
+            <input type="submit" value="GUARDAR"
+                   class="btn btn-success" />
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

@@ -42,6 +42,9 @@ public class Movimiento implements Serializable {
     @JoinColumn(name= "producto_id")
     private Producto producto;
 
+    @OneToMany(mappedBy = "id")
+    private List<Tercero> terceroList;
+
     public Long getId() {
         return id;
     }
@@ -88,6 +91,14 @@ public class Movimiento implements Serializable {
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public List<Tercero> getTerceroList() {
+        return terceroList;
+    }
+
+    public void setTerceroList(List<Tercero> terceroList) {
+        this.terceroList = terceroList;
     }
 }
 

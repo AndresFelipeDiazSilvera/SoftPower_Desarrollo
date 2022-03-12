@@ -13,7 +13,7 @@ public class Tercero implements Serializable {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -48,9 +48,9 @@ public class Tercero implements Serializable {
     @Column(name = "tipo_tercero")
     private String tipo_tercero;
 
-    @NotNull
-    @Column(name = "movimiento_id")
-    private String movimiento_id;
+    @ManyToOne
+    @JoinColumn(name = "movimiento_id")
+    private Movimiento movimiento;
 
     public Long getId() {
         return id;
@@ -58,14 +58,6 @@ public class Tercero implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getMovimiento_id() {
-        return movimiento_id;
-    }
-
-    public void setMovimiento_id(String movimiento_id) {
-        this.movimiento_id = movimiento_id;
     }
 
     public String getTipo_documento() {
@@ -138,5 +130,13 @@ public class Tercero implements Serializable {
 
     public void setTipo_tercero(String tipo_tercero) {
         this.tipo_tercero = tipo_tercero;
+    }
+
+    public Movimiento getMovimiento() {
+        return movimiento;
+    }
+
+    public void setMovimiento(Movimiento movimiento) {
+        this.movimiento = movimiento;
     }
 }

@@ -7,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SessionAttributes("marca")
@@ -40,5 +39,13 @@ public class MarcaController {
         return "redirect:/marca/listarMarca";
     }
 
+    @RequestMapping(value = "/eliminarMarca/{id}")
+    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash){
+        if(id > 0){
+            imarcaService.remove(id);
+            flash.addFlashAttribute("succes", "Marca eliminada con éxito");
+        }
+        return "redirect:/marca/listarMarca";
+    }
 
 }

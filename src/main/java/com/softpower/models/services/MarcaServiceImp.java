@@ -26,4 +26,8 @@ public class MarcaServiceImp implements ImarcaService {
     public Marca findOne(Long id) {
         return null;
     }
+
+    @Override
+    @Transactional
+    public void remove(Long id){imarcaDao.deleteById(id);}
 }

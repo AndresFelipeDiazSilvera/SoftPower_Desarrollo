@@ -30,6 +30,7 @@
         <th>Nombre</th>
         <th>Pais Origen</th>
         <th>Web</th>
+        <th> </th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@
         <td th:text="${marca.nombre}"></td>
         <td th:text="${marca.pais_origen}"></td>
         <td th:text="${marca.web}"></td>
+        <td><a class="btn btn-danger btn-xs" th:href="@{/eliminarMarca/} + ${marca.id}" th:text="'Eliminar'" onclick="return confirm('¿Estás seguro que quieres eliminar?');"></a></td>
     </tr>
     </tbody>
 </table>

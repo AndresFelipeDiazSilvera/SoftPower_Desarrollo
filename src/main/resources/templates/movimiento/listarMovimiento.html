@@ -42,6 +42,7 @@
          <td th:text="${movimiento.fecha}"></td>
          <td th:text="${movimiento.total}"></td>
          <!-- <td th:text="${movimiento.producto_id}"></td> -->
+         <td><a class="btn btn-danger btn-xs" th:href="@{/movimiento/eliminarMovimiento/} + ${movimiento.id}" th:text="'Eliminar'" onclick="return confirm('¿Estás seguro que quieres eliminar?');"></a></td>
     </tr>
     </tbody>
 </table>

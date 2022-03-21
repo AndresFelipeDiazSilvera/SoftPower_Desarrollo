@@ -26,4 +26,7 @@ public class MovimientoServiceImp implements ImovimientoService{
     public Movimiento findOne(Long id) {
         return null;
     }
+
+    @Override
+    public void remove(Long id) {imovimientoDao.deleteById(id);}
 }

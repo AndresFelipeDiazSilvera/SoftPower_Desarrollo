@@ -1,6 +1,8 @@
 package com.softpower.entities;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -39,6 +41,7 @@ public class Movimiento implements Serializable {
     private Double total;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name= "producto_id")
     private Producto producto;
 

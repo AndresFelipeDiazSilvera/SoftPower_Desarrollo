@@ -2,6 +2,8 @@ package com.softpower.entities;
 
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -49,6 +51,7 @@ public class Tercero implements Serializable {
     private String tipo_tercero;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name = "movimiento_id")
     private Movimiento movimiento;
 

@@ -7,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SessionAttributes("producto")
@@ -38,6 +37,15 @@ public class ProductoController {
             return "producto/crearProducto";
         }
         iproductoService.save(producto);
+        return "redirect:/producto/listarProducto";
+    }
+
+    @RequestMapping(value = "/producto/eliminarProducto/{id}")
+    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash){
+        if(id > 0){
+            iproductoService.remove(id);
+            flash.addFlashAttribute("succes", "Producto eliminado con éxito");
+        }
         return "redirect:/producto/listarProducto";
     }
 }

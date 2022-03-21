@@ -27,4 +27,7 @@ public class ProductoServiceImp implements IproductoService{
         return null;
     }
 
+    @Override
+    public void remove(Long id) {iproductoDao.deleteById(id);}
+
 }

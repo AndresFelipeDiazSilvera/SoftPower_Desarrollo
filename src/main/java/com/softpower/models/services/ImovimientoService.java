@@ -8,4 +8,6 @@ public interface ImovimientoService {
     public List<Movimiento> findAll();
     public void save(Movimiento movimiento);
     public Movimiento findOne(Long id);
+
+    void remove(Long id);
 }

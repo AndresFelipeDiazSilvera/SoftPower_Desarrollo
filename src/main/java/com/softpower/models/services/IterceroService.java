@@ -11,5 +11,7 @@ public interface IterceroService {
     public void save(Tercero tercero);
 
     public Tercero findOne(Long id);
+
+    void remove(Long id);
 }
 

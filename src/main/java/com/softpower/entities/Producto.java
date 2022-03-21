@@ -2,6 +2,8 @@ package com.softpower.entities;
 
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -43,6 +45,7 @@ public class Producto implements Serializable {
     private int cantidad_minima;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name= "marca_id")
     private Marca marca;
 

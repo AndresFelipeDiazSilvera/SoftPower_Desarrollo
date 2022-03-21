@@ -26,4 +26,7 @@ public class TerceroServiceImp implements IterceroService {
     public Tercero findOne(Long id) {
         return null;
     }
+
+    @Override
+    public void remove(Long id) {iterceroDao.deleteById(id);}
 }

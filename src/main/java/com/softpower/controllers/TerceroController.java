@@ -7,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SessionAttributes("tercero")
@@ -36,6 +35,15 @@ public class TerceroController {
             return "tercero/crearTercero";
         }
         iterceroService.save(tercero);
+        return "redirect:/tercero/listarTercero";
+    }
+
+    @RequestMapping(value = "/tercero/eliminarTercero/{id}")
+    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash){
+        if(id > 0){
+            iterceroService.remove(id);
+            flash.addFlashAttribute("succes", "Tercero eliminado con éxito");
+        }
         return "redirect:/tercero/listarTercero";
     }
 

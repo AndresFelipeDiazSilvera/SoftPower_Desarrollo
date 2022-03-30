@@ -28,6 +28,11 @@ public class MarcaServiceImp implements ImarcaService {
     }
 
     @Override
+    public Marca findById(Long id) {
+        return null;
+    }
+
+    @Override
     @Transactional
     public void remove(Long id){imarcaDao.deleteById(id);}
 }

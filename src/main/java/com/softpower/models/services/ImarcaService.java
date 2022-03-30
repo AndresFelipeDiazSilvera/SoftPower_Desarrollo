@@ -9,5 +9,5 @@ public interface ImarcaService {
     public void save(Marca marca);
     public void remove(Long id);
     public Marca findOne(Long id);
-
- }
+    Marca findById(Long id);
+}

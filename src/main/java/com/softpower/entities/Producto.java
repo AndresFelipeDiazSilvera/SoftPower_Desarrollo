@@ -44,13 +44,10 @@ public class Producto implements Serializable {
     @Column(name = "cantidad_minima")
     private int cantidad_minima;
 
-    @ManyToOne
+    @OneToOne
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JoinColumn(name= "marca_id")
     private Marca marca;
-
-    @OneToMany(mappedBy = "id")
-    private List<Producto> productoList;
 
 
     public Long getId() {
@@ -107,14 +104,6 @@ public class Producto implements Serializable {
 
     public void setCantidad_minima(int cantidad_minima) {
         this.cantidad_minima = cantidad_minima;
-    }
-
-    public List<Producto> getProductoList() {
-        return productoList;
-    }
-
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
     }
 
     public Marca getMarca() {

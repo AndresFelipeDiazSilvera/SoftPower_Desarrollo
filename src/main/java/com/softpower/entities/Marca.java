@@ -28,9 +28,6 @@ public class Marca implements Serializable {
     @Column(name = "web")
     private String web;
 
-    @OneToMany(mappedBy = "id")
-    private List<Producto> productoList;
-
     public Long getId() {
         return id;
     }
@@ -63,11 +60,13 @@ public class Marca implements Serializable {
         this.web = web;
     }
 
-    public List<Producto> getProductoList() {
-        return productoList;
-    }
-
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
+    @Override
+    public String toString() {
+        return "Marca{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", pais_origen='" + pais_origen + '\'' +
+                ", web='" + web + '\'' +
+                '}';
     }
 }

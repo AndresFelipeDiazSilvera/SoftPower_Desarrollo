@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Crear Marcas</title>
@@ -25,15 +25,15 @@
       <div class="form-group">
           <br/>
               <label for="nombre">Nombre de la marca</label>
-              <input id="nombre" type="text" class="form-control" field="*{nombre}" name="nombre" placeholder="Ingresa el nombre de la marca">
+              <input id="nombre" type="text" class="form-control" th:field="*{nombre}" name="nombre" placeholder="Ingresa el nombre de la marca">
               <small id="nombrehelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
           <br/>
               <label for="pais_origen">Pais de Origen</label>
-              <input id="pais_origen" type="text" class="form-control" field="*{pais_origen}" name="pais_origen" placeholder="Ingrese el pais de origen">
+              <input id="pais_origen" type="text" class="form-control" th:field="*{pais_origen}" name="pais_origen" placeholder="Ingrese el pais de origen">
               <small id="pais_origenhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
           <br/>
               <label for="web">Web</label>
-              <input id="web" type="text" class="form-control" field="*{web}" name="web" placeholder="Ingrese la web">
+              <input id="web" type="text" class="form-control" th:field="*{web}" name="web" placeholder="Ingrese la web">
               <small id="webhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
           <br>
           <div class="form-label">

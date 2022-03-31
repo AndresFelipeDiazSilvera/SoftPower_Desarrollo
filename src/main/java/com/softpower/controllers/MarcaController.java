@@ -16,7 +16,7 @@ public class MarcaController {
 
     @Autowired
     private ImarcaService imarcaService;
-    private Marca marcaObject;
+    private Marca marca;
 
     @GetMapping("/marca/listarMarca")
     public String listar(Model model){
@@ -36,6 +36,7 @@ public class MarcaController {
         if (result.hasErrors()){
             return "marca/crearMarca";
         }
+        System.out.println("\nEste es el marca save: " + marca);
         imarcaService.save(marca);
         return "redirect:/marca/listarMarca";
     }
@@ -51,19 +52,18 @@ public class MarcaController {
 
     @RequestMapping(value = "/editarMarca/{id}")
     public String editar(@PathVariable Long id, Model model) throws Exception{
-        marcaObject = imarcaService.findById(id);
-        model.addAttribute("marcaObject", marcaObject);
+        marca = imarcaService.findById(id);
+        model.addAttribute("marca", marca);
         model.addAttribute("titulo", "Actualizar Marca");
-        model.addAttribute("tituloPage", "Marcas");
 
         return "marca/crearMarca";
     }
 
     private void setParameters(Marca marca){
-        marcaObject.setNombre(marca.getNombre());
+        marca.setNombre(marca.getNombre());
     }
 
     private void initObject(){
-        this.marcaObject = new Marca();
+        this.marca = new Marca();
     }
 }

@@ -29,7 +29,7 @@ public class MarcaServiceImp implements ImarcaService {
 
     @Override
     public Marca findById(Long id) {
-        return null;
+        return imarcaDao.findById(id).orElseThrow(() -> null);
     }
 
     @Override

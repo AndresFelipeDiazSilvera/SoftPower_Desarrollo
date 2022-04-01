@@ -30,4 +30,9 @@ public class ProductoServiceImp implements IproductoService{
     @Override
     public void remove(Long id) {iproductoDao.deleteById(id);}
 
+    @Override
+    public Producto findById(Long id) {
+        return iproductoDao.findById(id).orElseThrow(() -> null);
+    }
+
 }

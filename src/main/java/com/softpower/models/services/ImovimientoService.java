@@ -9,5 +9,7 @@ public interface ImovimientoService {
     public void save(Movimiento movimiento);
     public Movimiento findOne(Long id);
 
+    Movimiento findById(Long id);
+
     void remove(Long id);
 }

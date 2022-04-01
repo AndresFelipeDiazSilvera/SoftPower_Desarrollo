@@ -1,5 +1,6 @@
 package com.softpower.controllers;
 
+import com.softpower.entities.Marca;
 import com.softpower.entities.Movimiento;
 import com.softpower.models.services.ImovimientoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("movimiento")
 public class MovimientoController {
 
-    @Autowired
-    private ImovimientoService imovimientoService;
+
+    private final ImovimientoService imovimientoService;
+    public Movimiento movimientoObject;
+
+    public MovimientoController(ImovimientoService imovimientoService) {
+        this.imovimientoService = imovimientoService;
+        this.initObject();
+    }
 
     @GetMapping("/movimiento/listarMovimiento")
     public String listar(Model model){
@@ -36,7 +43,8 @@ public class MovimientoController {
         if (result.hasErrors()){
             return "movimiento/crearMovimiento";
         }
-        imovimientoService.save(movimiento);
+        setParameters(movimiento);
+        imovimientoService.save(movimientoObject);
         return "redirect:/movimiento/listarMovimiento";
     }
 
@@ -47,6 +55,29 @@ public class MovimientoController {
             flash.addFlashAttribute("succes", "Movimiento eliminado con éxito");
         }
         return "redirect:/movimiento/listarMovimiento";
+    }
+
+    @RequestMapping(value = "/editarMovimiento/{id}")
+    public String editar(@PathVariable Long id, Model model) throws Exception{
+        movimientoObject = imovimientoService.findById(id);
+        model.addAttribute("movimiento", movimientoObject);
+        model.addAttribute("titulo", "Actualizar Movimiento");
+
+        return "movimiento/crearMovimiento";
+    }
+
+    private void setParameters(Movimiento movimiento){
+        movimientoObject.setProducto(movimiento.getProducto());
+        movimientoObject.setTipo_movimiento(movimiento.getTipo_movimiento());
+        movimientoObject.setFecha(movimiento.getFecha());
+        movimientoObject.setTotal(movimiento.getTotal());
+        movimientoObject.setFecha(movimiento.getFecha());
+        movimientoObject.setNumero_factura(movimiento.getNumero_factura());
+        movimientoObject.setTerceroList(movimiento.getTerceroList());
+    }
+
+    private void initObject(){
+        this.movimientoObject = new Movimiento();
     }
 
 }

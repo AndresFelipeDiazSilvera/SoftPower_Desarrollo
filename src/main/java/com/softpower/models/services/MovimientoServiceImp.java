@@ -1,5 +1,6 @@
 package com.softpower.models.services;
 
+import com.softpower.entities.Marca;
 import com.softpower.entities.Movimiento;
 import com.softpower.models.dao.ImovimientoDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,11 @@ public class MovimientoServiceImp implements ImovimientoService{
     }
 
     @Override
+    public Movimiento findById(Long id) {
+        return imovimientoDao.findById(id).orElseThrow(() -> null);
+    }
+
+    @Override
     public void remove(Long id) {imovimientoDao.deleteById(id);}
+
 }

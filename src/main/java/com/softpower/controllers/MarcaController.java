@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Map;
+
 @Controller
 @SessionAttributes("marca")
 public class MarcaController {
@@ -24,6 +26,7 @@ public class MarcaController {
         model.addAttribute("marca", imarcaService.findAll());
         return "marca/listarMarca";
     }
+
     @GetMapping(value = "/marca/crearMarca")
     public String create(Model model){
         model.addAttribute("marca",new Marca());

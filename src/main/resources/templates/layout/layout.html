@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- FOOTER -->
+<footer th:fragment="footer">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+  <p class="text-center">&copy; Nicolas E</p>
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#tablax').DataTable({
+        language: {
+          processing: "Tratamiento en curso...",
+          search: "Buscar&nbsp;:",
+          lengthMenu: "Agrupar de MENU items",
+          info: "Mostrando del item START al END de un total de TOTAL items",
+          infoEmpty: "No existen datos.",
+          infoFiltered: "(filtrado de MAX elementos en total)",
+          infoPostFix: "",
+          loadingRecords: "Cargando...",
+          zeroRecords: "No se encontraron datos con tu busqueda",
+          emptyTable: "No hay datos disponibles en la tabla.",
+          paginate: {
+            first: "Primero",
+            previous: "Anterior",
+            next: "Siguiente",
+            last: "Ultimo"
+          },
+          aria: {
+            sortAscending: ": active para ordenar la columna en orden ascendente",
+            sortDescending: ": active para ordenar la columna en orden descendente"
+          }
+        },
+        scrollY: 400,
+        lengthMenu: [ [10, 25, -1], [10, 25, "All"] ],
+      });
+    });
+  </script>
+</footer>
+<!-- FIN FOOTER -->
+</body>
+</html>

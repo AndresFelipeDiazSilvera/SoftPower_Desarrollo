@@ -47,6 +47,7 @@
         <td th:text="${producto.cantidad_minima}"></td>
         <!--<td th:text="${producto.marca_id}"></td>-->
         <td><a class="btn btn-danger btn-xs" th:href="@{/producto/eliminarProducto/} + ${producto.id}" th:text="'Eliminar'" onclick="return confirm('¿Estás seguro que quieres eliminar?');"></a></td>
+        <td><a class="btn btn-primary" th:href="@{/editarProducto/} + ${producto.id}" th:text="'Editar'"></a></td>
     </tr>
     </tbody>
 </table>

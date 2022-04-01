@@ -11,4 +11,6 @@ public interface IproductoService {
     public Producto findOne(Long id);
 
     void remove(Long id);
+
+    Producto findById(Long id);
 }

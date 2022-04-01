@@ -1,6 +1,8 @@
 package com.softpower.controllers;
 
 import com.softpower.entities.Producto;
+import com.softpower.entities.Producto;
+import com.softpower.models.services.IproductoService;
 import com.softpower.models.services.IproductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +16,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes("producto")
 public class ProductoController {
 
-    @Autowired
-    private IproductoService iproductoService;
+    private final IproductoService iproductoService;
+    public Producto productoObject;
+
+    public ProductoController(IproductoService iproductoService) {
+        this.iproductoService = iproductoService;
+        this.initObject();
+    }
 
     @GetMapping("/producto/listarProducto")
     public String listar(Model model){
@@ -36,7 +43,8 @@ public class ProductoController {
         if (result.hasErrors()){
             return "producto/crearProducto";
         }
-        iproductoService.save(producto);
+        setParameters(producto);
+        iproductoService.save(productoObject);
         return "redirect:/producto/listarProducto";
     }
 
@@ -47,5 +55,27 @@ public class ProductoController {
             flash.addFlashAttribute("succes", "Producto eliminado con éxito");
         }
         return "redirect:/producto/listarProducto";
+    }
+
+    @RequestMapping(value = "/editarProducto/{id}")
+    public String editar(@PathVariable Long id, Model model) throws Exception{
+        productoObject = iproductoService.findById(id);
+        model.addAttribute("producto", productoObject);
+        model.addAttribute("titulo", "Actualizar Producto");
+
+        return "producto/crearProducto";
+    }
+
+    private void setParameters(Producto producto){
+        productoObject.setCantidad_maxima(producto.getCantidad_maxima());
+        productoObject.setCantidad_minima(producto.getCantidad_minima());
+        productoObject.setNombre(producto.getNombre());
+        productoObject.setDescripcion(producto.getDescripcion());
+        productoObject.setIva(producto.getIva());
+        productoObject.setPrecio(producto.getPrecio());
+    }
+
+    private void initObject(){
+        this.productoObject = new Producto();
     }
 }

@@ -25,7 +25,13 @@
     <div class="form-group">
         <br/>
         <label for="tipo_documento">Tipo de Documento</label>
-        <input id="tipo_documento" type="text" class="form-control"th:field="*{tipo_documento}" name="tipo_documento" placeholder="Ingresa el tipo de documento">
+        <select class="form-control" id="tipo_documento" th:field="*{tipo_documento}">
+            <option value=" "></option>
+            <option value="C.C.(Cédula de Ciudadanía)">C.C.(Cédula de Ciudadanía)</option>
+            <option value="T.I.(Tarjeta de Identidad)">T.I.(Tarjeta de Identidad)</option>
+            <option value="C.E.(Cédula Extranjera)">C.E.(Cédula Extranjera)</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>
         <small id="tipo_documentohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br/>
         <label for="documento">Documento</label>
@@ -49,15 +55,25 @@
         <small id="telefonohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br>
         <label for="email">Email</label>
-        <input id="email" type="text" class="form-control"th:field="*{email}" name="email" placeholder="Ingrese su email">
+        <input id="email" type="email" class="form-control"th:field="*{email}" name="email" placeholder="Ingrese su email">
         <small id="emailhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br>
         <label for="genero">Genero</label>
-        <input id="genero" type="text" class="form-control"th:field="*{genero}" name="genero" placeholder="Ingrese su genero">
+        <select class="form-control" id="genero" th:field="*{genero}">
+            <option value=" "></option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Binario">Binario</option>
+        </select>
         <small id="generohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br>
         <label for="tipo_tercero">Tipo tercero</label>
-        <input id="tipo_tercero" type="text" class="form-control"th:field="*{tipo_tercero}" name="tipo_tercero" placeholder="Ingrese el tipo de tercero">
+        <select class="form-control" id="tipo_tercero" th:field="*{tipo_tercero}">
+            <option value=" "></option>
+            <option value="Cliente">Cliente</option>
+            <option value="Proveedor">Proveedor</option>
+            <option value="Trabajador">Trabajador</option>
+        </select>
         <small id="tipo_tercerohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br>
         <div class="form-label">

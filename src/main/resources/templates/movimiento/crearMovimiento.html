@@ -25,7 +25,12 @@
     <div class="form-group">
         <br/>
         <label for="tipo_movimiento">Tipo de Movimiento</label>
-        <input id="tipo_movimiento" type="text" class="form-control"th:field="*{tipo_movimiento}" name="tipo_movimiento" placeholder="Ingresa el tipo de movimiento">
+        <select class="form-control" id="tipo_movimiento" th:field="*{tipo_movimiento}">
+            <option value=" "></option>
+            <option value="Pago con Tarjeta de Crédito">Pago con Tarjeta de Crédito</option>
+            <option value="Pago en Efectivo">Pago en Efectivo</option>
+            <option value="Pago con Transacción Bancaría">Pago con transacción Bancaría</option>
+        </select>
         <small id="tipo_movimientohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br/>
         <label for="numero_factura">Número de Factura</label>

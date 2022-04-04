@@ -32,8 +32,8 @@ public class Movimiento implements Serializable {
 
     @NotNull
     @Column(name = "fecha")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @Temporal(TemporalType.DATE)
     private Date fecha;
 
     @NotNull

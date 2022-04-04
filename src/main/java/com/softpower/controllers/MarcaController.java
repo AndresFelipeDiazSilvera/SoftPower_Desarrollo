@@ -22,7 +22,7 @@ public class MarcaController {
 
     @GetMapping("/marca/listarMarca")
     public String listar(Model model){
-        model.addAttribute("titulo","Listar Marcas");
+        model.addAttribute("titulo","Marcas");
         model.addAttribute("marca", imarcaService.findAll());
         return "marca/listarMarca";
     }

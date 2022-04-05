@@ -26,7 +26,7 @@ public class ProductoController {
 
     @GetMapping("/producto/listarProducto")
     public String listar(Model model){
-        model.addAttribute("titulo","Listar Productos");
+        model.addAttribute("titulo","Productos");
         model.addAttribute("producto", iproductoService.findAll());
         return "producto/listarProducto";
     }

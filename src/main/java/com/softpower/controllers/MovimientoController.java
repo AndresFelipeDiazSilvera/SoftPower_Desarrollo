@@ -26,7 +26,7 @@ public class MovimientoController {
 
     @GetMapping("/movimiento/listarMovimiento")
     public String listar(Model model){
-        model.addAttribute("titulo","Listar Movimientos");
+        model.addAttribute("titulo","Movimientos");
         model.addAttribute("movimiento", imovimientoService.findAll());
         return "movimiento/listarMovimiento";
     }

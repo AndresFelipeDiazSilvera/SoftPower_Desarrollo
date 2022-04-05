@@ -6,16 +6,9 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{css/jquery-ui.min.css}"/>
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous"/>
-    <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-          crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
 
@@ -31,27 +24,29 @@
             <option value="Pago en Efectivo">Pago en Efectivo</option>
             <option value="Pago con Transacción Bancaría">Pago con transacción Bancaría</option>
         </select>
-        <small id="tipo_movimientohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <small id="tipo_movimientohelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes
+            mostrar</small>
         <br/>
         <label for="numero_factura">Número de Factura</label>
-        <input id="numero_factura" type="text" class="form-control"th:field="*{numero_factura}" name="numero_factura" placeholder="Ingrese el número de factura">
-        <small id="numero_facturahelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
+        <input id="numero_factura" type="text" class="form-control" th:field="*{numero_factura}" name="numero_factura"
+               placeholder="Ingrese el número de factura">
+        <small id="numero_facturahelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes
+            mostrar</small>
         <br/>
         <label for="fecha">Fecha</label>
         <input id="fecha" type="date" class="form-control" th:field="*{fecha}" name="fecha">
         <small id="fechahelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br/>
         <label for="total">Total</label>
-        <input id="total" type="text" class="form-control"th:field="*{total}" name="total" placeholder="Ingrese el total">
+        <input id="total" type="text" class="form-control" th:field="*{total}" name="total"
+               placeholder="Ingrese el total">
         <small id="totalhelp" class="form-text text-muted">Esto son ayudas o restricciones que puedes mostrar</small>
         <br>
         <div class="form-label">
             <input type="submit" value="GUARDAR"
-                   class="btn btn-success" />
+                   class="btn btn-success"/>
         </div>
     </div>
-
 </form>
-
 </body>
 </html>

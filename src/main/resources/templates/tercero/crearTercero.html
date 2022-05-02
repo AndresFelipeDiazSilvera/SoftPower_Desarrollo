@@ -12,8 +12,9 @@
 </head>
 <body>
 
-<h1 th:text="${titulo}"></h1>
+<h1 class="text-center" th:text="${titulo}"></h1>
 <br>
+<div class="container">
 <form th:object="${tercero}" th:action="@{/tercero/crearTercero}" method="post">
     <div class="form-group">
         <br/>
@@ -85,5 +86,6 @@
         </div>
     </div>
 </form>
+</div>
 </body>
 </html>

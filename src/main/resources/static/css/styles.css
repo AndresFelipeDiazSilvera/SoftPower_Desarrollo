@@ -1,5 +1,9 @@
 .login-nav{
     display:flex;
     justify-content: space-between;
+    color: white;
+}
+.inicio-img{
+    max-width: 100%;
 }
 

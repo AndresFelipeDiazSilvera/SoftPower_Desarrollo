@@ -25,22 +25,22 @@ public class ProductoController {
     }
 
     @GetMapping("/producto/listarProducto")
-    public String listar(Model model){
-        model.addAttribute("titulo","Productos");
+    public String listar(Model model) {
+        model.addAttribute("titulo", "Productos");
         model.addAttribute("producto", iproductoService.findAll());
         return "producto/listarProducto";
     }
 
     @GetMapping(value = "/producto/crearProducto")
-    public String create(Model model){
-        model.addAttribute("producto",new Producto());
-        model.addAttribute("titulo","Crear Producto");
+    public String create(Model model) {
+        model.addAttribute("producto", new Producto());
+        model.addAttribute("titulo", "Crear Producto");
         return "producto/crearProducto";
     }
 
     @PostMapping(value = "/producto/crearProducto")
-    public String guardarproducto(@Validated Producto producto, BindingResult result, Model model){
-        if (result.hasErrors()){
+    public String guardarproducto(@Validated Producto producto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "producto/crearProducto";
         }
         setParameters(producto);
@@ -49,8 +49,8 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "/producto/eliminarProducto/{id}")
-    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash){
-        if(id > 0){
+    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+        if (id > 0) {
             iproductoService.remove(id);
             flash.addFlashAttribute("succes", "Producto eliminado con éxito");
         }
@@ -58,7 +58,7 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "/editarProducto/{id}")
-    public String editar(@PathVariable Long id, Model model) throws Exception{
+    public String editar(@PathVariable Long id, Model model) throws Exception {
         productoObject = iproductoService.findById(id);
         model.addAttribute("producto", productoObject);
         model.addAttribute("titulo", "Actualizar Producto");
@@ -66,7 +66,7 @@ public class ProductoController {
         return "producto/crearProducto";
     }
 
-    private void setParameters(Producto producto){
+    private void setParameters(Producto producto) {
         productoObject.setCantidad_maxima(producto.getCantidad_maxima());
         productoObject.setCantidad_minima(producto.getCantidad_minima());
         productoObject.setNombre(producto.getNombre());
@@ -75,7 +75,7 @@ public class ProductoController {
         productoObject.setPrecio(producto.getPrecio());
     }
 
-    private void initObject(){
+    private void initObject() {
         this.productoObject = new Producto();
     }
 }

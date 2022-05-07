@@ -26,6 +26,10 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
+            <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-outline-light" type="submit">Cerrar Sesion</button>
+            </form>
         </div>
     </div>
 

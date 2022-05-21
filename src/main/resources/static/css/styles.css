@@ -44,12 +44,12 @@
 }
 
 .container .card{
-    width: 330px;
-    height: 530px;
-    border-radius: 8px;
+    width: 360px;
+    height: 490px;
+    border-radius: 10px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    margin: 20px;
+    margin: 18px;
     text-align: center;
     transition: all 0.25s;
 }
@@ -60,12 +60,6 @@
 }
 
 .card-img-top{
-    width: 330px;
-    height: 220px;
+    max-width: 100%;
 }
 
-.container .card p{
-    padding: 0 1rem;
-    font-size: 16px;
-    font-weight: 300;
-}

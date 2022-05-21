@@ -22,11 +22,11 @@
                     <a class="nav-link active" aria-current="page" href="../tercero/listarTercero">Terceros</a>
                 </li>
             </ul>
-            <form class="d-flex">
+           <!--<form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-            <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
+            </form>-->
+            <h2 class="text-white" th:inline="text">[[${#httpServletRequest.remoteUser}]]</h2>
             <form th:action="@{/logout}" method="post">
                 <button class="btn btn-outline-light" type="submit">Cerrar Sesion</button>
             </form>

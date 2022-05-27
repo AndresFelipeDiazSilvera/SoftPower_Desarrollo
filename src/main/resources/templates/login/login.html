@@ -29,16 +29,16 @@
                     <p class="text-center fw-bold mx-3 mb-0">Bienvenido</p>
                 </div>
 
-                <form class="col-12" th:action="@{/inicio}" method="get">
+                <form class="col-12" th:action="@{/login}" method="post">
                     <div class="form-outline mb-4">
                         <input type="text" id="form3Example3" class="form-control form-control-lg"
-                               placeholder="Enter username"/>
+                               placeholder="Enter username" name="username"/>
                         <label class="form-label" for="form3Example3">Usuario</label>
                     </div>
 
                     <div class="form-outline mb-3">
                         <input type="password" id="form3Example4" class="form-control form-control-lg"
-                               placeholder="Enter password"/>
+                               placeholder="Enter password" name="password"/>
                         <label class="form-label" for="form3Example4">Contraseña</label>
                     </div>
 

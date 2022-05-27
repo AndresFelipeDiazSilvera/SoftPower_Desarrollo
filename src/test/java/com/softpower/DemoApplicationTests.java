@@ -18,7 +18,7 @@ class DemoApplicationTests {
     @Test
     void contextLoads() {
         UserSoftPower userSoftPower=new UserSoftPower();
-        userSoftPower.setUsername("code");
+        userSoftPower.setUsername("yurlei");
         userSoftPower.setPassword(encoder.encode("134"));
         iUserSoftpowerService.save(userSoftPower);
     }

@@ -1,58 +1,43 @@
 package com.softpower.entities;
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 public class UserSoftPower implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public UserSoftPower() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
     @NotNull
-    @Column(name =  "username")
+    @Column(name =  "username", nullable = false,unique = true)
     private String username;
 
     @NotNull
     @Column(name = "password")
     private String password;
 
-    public UserSoftPower(Long id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "USER_ID",
+                    referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID",
+                    referencedColumnName = "ID")})
+    private List<Role> roles;
+
 }

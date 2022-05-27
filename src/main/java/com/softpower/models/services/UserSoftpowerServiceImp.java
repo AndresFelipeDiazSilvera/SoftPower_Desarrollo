@@ -1,19 +1,23 @@
 package com.softpower.models.services;
 
+import com.softpower.entities.Role;
 import com.softpower.entities.UserSoftPower;
 import com.softpower.models.dao.IUserSoftpowerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 @Service
+@Transactional
 public class UserSoftpowerServiceImp implements IUserSoftpowerService, UserDetailsService {
 
     @Autowired
@@ -50,9 +54,16 @@ public class UserSoftpowerServiceImp implements IUserSoftpowerService, UserDetai
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserSoftPower user = iUserSoftpowerDao.findByUsername(username);
 
-        List<GrantedAuthority> roles = new ArrayList<>();
-        roles.add(new SimpleGrantedAuthority("ADMIN"));
+        return new User(user.getUsername(), user.getPassword(), getAuthorities(user));
+    }
 
-        return new User(user.getUsername(), user.getPassword(), roles);
+
+    private static Collection<? extends GrantedAuthority> getAuthorities(UserSoftPower user)
+    {
+        String[] userRoles = user.getRoles()
+                .stream()
+                .map(Role::getName)
+                .toArray(String[]::new);
+        return AuthorityUtils.createAuthorityList(userRoles);
     }
 }

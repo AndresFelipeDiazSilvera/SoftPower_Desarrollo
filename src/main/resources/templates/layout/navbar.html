@@ -26,11 +26,11 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>-->
-            <h2 class="text-white" th:inline="text">[[${#httpServletRequest.remoteUser}]]</h2>
+            <h2 class="text-white" th:inline="text">[[${#httpServletRequest.remoteUser}]] &nbsp</h2>
             <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
                 <button class="btn btn-outline-light" type="submit">Cerrar Sesion</button>
             </form>
-            <a class="btn btn-outline-light"  sec:authorize="!isAuthenticated()" th:href="@{/login}" >Iniciar sesión</a>
+            <a class="btn btn-outline-light" sec:authorize="!isAuthenticated()" th:href="@{/login}" >Iniciar sesión</a>
 
         </div>
     </div>

@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/accessDenied").setViewName("403");
+        registry.addViewController("/accessDenied").setViewName("accessDenied/403");
     }
     @Bean
     public SpringSecurityDialect securityDialect(){
